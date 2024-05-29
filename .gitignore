@@ -1,0 +1,24 @@
+# Default ignored files
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Compiled class file
+*.class
+
+*.xml
+
+# Gradle specific
+.gradle/
+/gradle/
+/build/
+gradlew
+gradlew.bat
+
+*.log
+/test-output/
+*.xml
+
