@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 import static utils.DriverProvider.getCurrentDriver;
 
 
@@ -16,16 +18,14 @@ public class BasePage {
     String errorMessage = "Login and / or password is not correct.";
     By mainCentreFieldId = By.id("mainCenter");
     By helloUserFieldId = By.id("userLogedLeft");
-    public static By productsListOnProductPageClassName = By.className("product-list");
-    public static By pagerOnProductPage = By.className("paglm");
-
+    By visibleElementOnPageWithUrl = By.xpath("//a[starts-with(@href, 'https')]");
+    By editProfileLink = By.xpath("//*[@id='userLogedLeft']/a[1]");
 
     public void login(String loginName, String password) {
         WebElement registrationButton = getCurrentDriver().findElement(registrationId);
         WebElement userField = getCurrentDriver().findElement(userFieldName);
         WebElement passwordField = getCurrentDriver().findElement(passwordFieldName);
         WebElement logInButton = getCurrentDriver().findElement(logInButtonNameXpath);
-
 
         registrationButton.click();
         userField.sendKeys(loginName);
@@ -49,5 +49,19 @@ public class BasePage {
             return false;
         }
         return true;
+    }
+
+    public List<WebElement> collectVisibleElementsWithUrlToList() {
+        return getCurrentDriver().findElements(visibleElementOnPageWithUrl);
+    }
+
+    public List<String> getLinkFromWebElement(List<WebElement> webElements) {
+        return webElements.stream()
+                .map(e -> e.getAttribute("href"))
+                .toList();
+    }
+
+    public void openEditProfilePage(){
+        getCurrentDriver().findElement(editProfileLink).click();
     }
 }

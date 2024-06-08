@@ -18,9 +18,8 @@ public class AssertionUtils {
 
     public static void assertEqualsForLinkRespondStatus200(List<String> elements) throws IOException {
         for (String link : elements) {
-           // String url = link.getAttribute("href");
             int actualStatusCode = getHttpStatusCode(link);
-            Reporter.log("For link " + link + " received code " + actualStatusCode);
+            Reporter.log("For " + link + " received code " + actualStatusCode);
             Assert.assertEquals(actualStatusCode, 200);
         }
 

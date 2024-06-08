@@ -1,5 +1,6 @@
 package tests;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
 import models.User;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
@@ -13,6 +14,7 @@ public class BasePageLoginTest extends BaseTest{
     void successfulCheck(String userName, String password) {
         BasePage basePage = new BasePage();
         User standartUser = new User(userName, password);
+
         basePage.login(standartUser.getUserName(), standartUser.getPassword());
         Assert.assertFalse(basePage.isErrorMessageDisplayed());
         Assert.assertTrue(basePage.isHelloUserNameDisplayed());
@@ -21,7 +23,28 @@ public class BasePageLoginTest extends BaseTest{
     @Parameters({"good_login", "good_password"})
     void wrongPasswordCheck(String userName, String password) {
         BasePage basePage = new BasePage();
+
         basePage.login(userName,password+"1");
+        Assert.assertTrue(basePage.isErrorMessageDisplayed());
+        Assert.assertFalse(basePage.isHelloUserNameDisplayed());
+    }
+
+    @Test
+    @Parameters({"good_login", "good_password"})
+    void wrongUserNameCheck(String userName, String password) {
+        BasePage basePage = new BasePage();
+
+        basePage.login(userName+"1", password);
+        Assert.assertTrue(basePage.isErrorMessageDisplayed());
+        Assert.assertFalse(basePage.isHelloUserNameDisplayed());
+    }
+
+    @Test
+    @Parameters({"good_login", "good_password"})
+    void wrongUserNameAndPassword(String userName, String password) {
+        BasePage basePage = new BasePage();
+
+        basePage.login(userName+"1", password+"1");
         Assert.assertTrue(basePage.isErrorMessageDisplayed());
         Assert.assertFalse(basePage.isHelloUserNameDisplayed());
     }
