@@ -16,6 +16,8 @@ public class BasePage {
     String errorMessage = "Login and / or password is not correct.";
     By mainCentreFieldId = By.id("mainCenter");
     By helloUserFieldId = By.id("userLogedLeft");
+    public static By productsListOnProductPageClassName = By.className("product-list");
+    public static By pagerOnProductPage = By.className("paglm");
 
 
     public void login(String loginName, String password) {

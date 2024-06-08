@@ -1,7 +1,13 @@
 package utils;
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.Reporter;
+
+import java.io.IOException;
+import java.util.List;
+
+import static utils.CheckHttpStatus.getHttpStatusCode;
 
 public class AssertionUtils {
 
@@ -10,8 +16,13 @@ public class AssertionUtils {
         Assert.assertEquals(actual, expected);
     }
 
-    public static void assertEqualsForRespondStatus200(String link, int actual) {
-        Reporter.log("For link " + link + " received code " + actual);
-        Assert.assertEquals(actual, 200);
+    public static void assertEqualsForLinkRespondStatus200(List<String> elements) throws IOException {
+        for (String link : elements) {
+           // String url = link.getAttribute("href");
+            int actualStatusCode = getHttpStatusCode(link);
+            Reporter.log("For link " + link + " received code " + actualStatusCode);
+            Assert.assertEquals(actualStatusCode, 200);
+        }
+
     }
 }

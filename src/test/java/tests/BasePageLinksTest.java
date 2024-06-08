@@ -7,19 +7,18 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.List;
 
-import static utils.AssertionUtils.assertEqualsForRespondStatus200;
-import static utils.CheckHttpStatus.getHttpStatusCode;
+import static utils.AssertionUtils.assertEqualsForLinkRespondStatus200;
 import static utils.DriverProvider.getCurrentDriver;
+import static utils.WebElementsCollectorToList.getElementsUrl;
 
 public class BasePageLinksTest extends BaseTest {
 
     @Test
-    void getLinksListAndLinkCheckFor200() throws IOException {
-        List<WebElement> links = getCurrentDriver().findElements(By.xpath("//a[starts-with(@href, 'https')]"));
-        for (WebElement link : links) {
-            String url = link.getAttribute("href");
-            int actualStatusCode = getHttpStatusCode(url);
-            assertEqualsForRespondStatus200(String.valueOf(link), actualStatusCode);
-        }
+    void checkAllLinksOnPageForStatus200() throws IOException {
+        List<WebElement> elementsWithUrl = getCurrentDriver().findElements(By.xpath("//a[starts-with(@href, 'https')]"));
+        List<String> links = elementsWithUrl.stream()
+                        .map(e -> e.getAttribute("href"))
+                                .toList();
+        assertEqualsForLinkRespondStatus200(links);
     }
 }
