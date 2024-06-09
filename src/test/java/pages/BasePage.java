@@ -11,7 +11,7 @@ import static utils.DriverProvider.getCurrentDriver;
 public class BasePage {
 
 
-    By registrationId = By.id("topCartRegLbl");
+    By registrationAndLogin = By.id("topCartRegLbl");
     By userFieldName = By.name("login");
     By passwordFieldName = By.name("passw");
     By logInButtonNameXpath = By.xpath("//*[@id='topLogin']/div/button");
@@ -20,9 +20,11 @@ public class BasePage {
     By helloUserFieldId = By.id("userLogedLeft");
     By visibleElementOnPageWithUrl = By.xpath("//a[starts-with(@href, 'https')]");
     By editProfileLink = By.xpath("//*[@id='userLogedLeft']/a[1]");
+    By registrationPageLink = By.id("doregistr");
+    By ayurvedicTeaPageLink = By.xpath("//*[@id='leftMenu']/li[1]/a");
 
     public void login(String loginName, String password) {
-        WebElement registrationButton = getCurrentDriver().findElement(registrationId);
+        WebElement registrationButton = getCurrentDriver().findElement(registrationAndLogin);
         WebElement userField = getCurrentDriver().findElement(userFieldName);
         WebElement passwordField = getCurrentDriver().findElement(passwordFieldName);
         WebElement logInButton = getCurrentDriver().findElement(logInButtonNameXpath);
@@ -61,7 +63,16 @@ public class BasePage {
                 .toList();
     }
 
-    public void openEditProfilePage(){
+    public void openAyurvedicTeaPage() {
+        getCurrentDriver().findElement(ayurvedicTeaPageLink).click();
+    }
+
+    public void openEditProfilePage() {
         getCurrentDriver().findElement(editProfileLink).click();
+    }
+
+    public void openRegistrationPage() {
+        getCurrentDriver().findElement(registrationAndLogin).click();
+        getCurrentDriver().findElement(registrationPageLink).click();
     }
 }

@@ -1,13 +1,10 @@
 package tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.time.Duration;
-import java.util.List;
 
 import static utils.DriverProvider.closeDriver;
 import static utils.DriverProvider.getCurrentDriver;

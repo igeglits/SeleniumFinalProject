@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.BasePage;
@@ -106,6 +107,7 @@ public class EditProfilePageTest extends BaseTest {
 
         Assert.assertTrue(getCurrentDriver().findElement(editProfilePage.errorMessage).isDisplayed());
     }
+
     @Test(priority = 8)
     @Parameters({"good_login", "good_password"})
     void nameFieldValueAsThreeNumericCharCheck(String userName, String password) {
@@ -119,6 +121,7 @@ public class EditProfilePageTest extends BaseTest {
 
         Assert.assertTrue(getCurrentDriver().findElement(editProfilePage.errorMessage).isDisplayed());
     }
+
     @Test(priority = 9)
     @Parameters({"good_login", "good_password"})
     void nameFieldValueAsThreeSpacesCheck(String userName, String password) {

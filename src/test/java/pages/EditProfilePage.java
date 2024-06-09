@@ -32,6 +32,7 @@ public class EditProfilePage extends BasePage {
         }
         return true;
     }
+
     public boolean checkValueEqualityOf(String string, By locator) {
         WebElement inputField = getCurrentDriver().findElement(locator);
         return Objects.equals(inputField.getAttribute("value"), string);

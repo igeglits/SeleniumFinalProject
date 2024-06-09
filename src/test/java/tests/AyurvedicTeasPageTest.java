@@ -1,7 +1,8 @@
 package tests;
 
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
-import pages.AyurvedicTeasPage;
+import pages.BasePage;
 import utils.ProductSectionProductsWebElementsCollectorToList;
 
 import java.io.IOException;
@@ -14,12 +15,12 @@ import static utils.AssertionUtils.assertEqualsForLinkRespondStatus200;
 public class AyurvedicTeasPageTest extends BaseTest {
 
     @Test
-    void checkAllProductsLinksForStatus200() throws IOException, InterruptedException {
-        var AyurvedicTeaPage = new AyurvedicTeasPage();
-        var elementsCollectorToList = new ProductSectionProductsWebElementsCollectorToList();
+    void checkAllProductsLinksForStatus200() throws IOException {
+        var basePage = new BasePage();
 
-        AyurvedicTeaPage.open();
-        List<String> productsUrls = elementsCollectorToList.collectAllProductsFromProductSectionReturnUrls(
+        basePage.openAyurvedicTeaPage();
+
+        List<String> productsUrls = new ProductSectionProductsWebElementsCollectorToList().collectAllProductsFromProductSectionReturnUrls(
                 productsListOnProductPageClassName,
                 pagerOnProductPage);
 
