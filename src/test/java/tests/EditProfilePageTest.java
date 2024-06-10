@@ -67,7 +67,7 @@ public class EditProfilePageTest extends BaseTest {
         editProfilePage.changeInputFieldValue("AAA",
                 editProfilePage.inputFieldAddress);
 
-        Assert.assertFalse(getCurrentDriver().findElement(editProfilePage.errorMessage).isDisplayed());
+        Assert.assertTrue(editProfilePage.isSuccessEditionMessageDisplayed());
     }
 
     @Test(priority = 6)
