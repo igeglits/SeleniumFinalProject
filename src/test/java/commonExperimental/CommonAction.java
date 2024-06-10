@@ -1,4 +1,4 @@
-package common;
+package commonExperimental;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,15 +8,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import static utils.DriverProvider.closeDriver;
+
 import static utils.DriverProvider.getCurrentDriver;
 
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static common.Config.*;
-import static common.Config.EXPLICIT_WAIT;
+import static commonExperimental.Config.*;
+import static commonExperimental.Config.EXPLICIT_WAIT;
 
 public class CommonAction {
     private static WebDriver driver = null;

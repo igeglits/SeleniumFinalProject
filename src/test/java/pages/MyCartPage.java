@@ -6,13 +6,13 @@ import static utils.ExplicitWaitsReturnWebElm.elementToBeClickable;
 import static utils.ExplicitWaitsReturnWebElm.visibilityOfElement;
 
 public class MyCartPage extends BasePage {
-    By priceInLineOfProduct = By.className("cart-price");
+    By priceOfProductInCartList = By.className("cart-price");
     By placeAnOrderButton = By.id("cart-submit");
     By popUpMessage = By.className("jqimessage");
     public String missingDeliveryMethodMessageText = "Please choose the most convenient method of delivery!";
 
     public boolean ifPriceOfProductCorrect(String price) {
-        String priceString = visibilityOfElement(2,priceInLineOfProduct).getText();
+        String priceString = visibilityOfElement(2, priceOfProductInCartList).getText();
         return price.equals(priceString.substring(0,priceString.length()-1));
     }
 

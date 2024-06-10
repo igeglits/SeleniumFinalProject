@@ -15,7 +15,7 @@ import static utils.AssertionUtils.assertEqualsForLinkRespondStatus200;
 public class AyurvedicTeasPageTest extends BaseTest {
 
     @Test
-    void checkAllProductsLinksForStatus200() throws IOException {
+    void checkAllProductsLinksInProductSectionInclPagingForStatus200() throws IOException {
         var basePage = new BasePage();
 
         basePage.openAyurvedicTeaPage();

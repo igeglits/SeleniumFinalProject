@@ -1,7 +1,6 @@
 package tests;
 
 import org.testng.Assert;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.RegistrationPage;
@@ -22,7 +21,7 @@ public class RegistrationPageTest extends BaseTest {
                 "testName",
                 "qwerty");
 
-        Assert.assertTrue(registrationPage.isThisLoginIsAlreadyTakenMessageDisplayed());
+        Assert.assertTrue(registrationPage.isMessageThisLoginIsAlreadyTakenDisplayed());
         Assert.assertTrue(registrationPage.isTextMessageCorrect(registrationPage.loginTakenMessageText,
                 registrationPage.loginTakenErrorMessage));
     }
@@ -34,7 +33,7 @@ public class RegistrationPageTest extends BaseTest {
 
         basePage.openRegistrationPage();
         registrationPage.fillInRegistrationFormClickRegister("", "", "", "", "", "");
-        Assert.assertTrue(registrationPage.isPleaseCheckIfTheFormIsFilledInCorrectlyDisplayed());
+        Assert.assertTrue(registrationPage.isMessagePleaseCheckIfTheFormIsFilledInCorrectlyDisplayed());
         Assert.assertTrue(registrationPage.isTextMessageCorrect(registrationPage.incorrectFormMessageText,
                 registrationPage.incorrectFormErrorMessage));
         Assert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputName));

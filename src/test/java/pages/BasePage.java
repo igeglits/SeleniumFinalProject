@@ -19,8 +19,8 @@ public class BasePage {
     By passwordFieldName = By.name("passw");
     By logInButtonNameXpath = By.xpath("//*[@id='topLogin']/div/button");
     String errorMessage = "Login and / or password is not correct.";
-    By mainCentreFieldId = By.id("mainCenter");
-    By helloUserFieldId = By.id("userLogedLeft");
+    By loginErrorMessage = By.className("message");
+    By helloUserField = By.id("userLogedLeft");
     By visibleElementOnPageWithUrl = By.xpath("//a[starts-with(@href, 'https')]");
     By editProfileLink = By.xpath("//*[@id='userLogedLeft']/a[1]");
     By registrationPageLink = By.id("doregistr");
@@ -43,9 +43,9 @@ public class BasePage {
         logInButton.click();
     }
 
-    public Boolean isErrorMessageDisplayed() {
+    public Boolean isErrorMessageDisplayedAndTextCorrect() {
         try {
-            String errorMessageText = getCurrentDriver().findElement(mainCentreFieldId).getText();
+            String errorMessageText = getCurrentDriver().findElement(loginErrorMessage).getText();
             return errorMessageText.equals(errorMessage);
         } catch (Exception e) {
             return false;
@@ -54,7 +54,7 @@ public class BasePage {
 
     public boolean isHelloUserNameDisplayed() {
         try {
-            getCurrentDriver().findElement(helloUserFieldId);
+            getCurrentDriver().findElement(helloUserField);
         } catch (Exception e) {
             return false;
         }
@@ -84,26 +84,26 @@ public class BasePage {
         getCurrentDriver().findElement(registrationPageLink).click();
     }
 
-    public void openCart(){
+    public void openCart() {
         getCurrentDriver().findElement(cartButton).click();
     }
 
-    public void addFirstProductFromBasePageToCart(){
+    public void addFirstProductFromBasePageToCart() {
         WebDriverWait wait = new WebDriverWait(getCurrentDriver(), Duration.ofSeconds(5));
         WebElement addToCartButton = wait.until(ExpectedConditions.elementToBeClickable(firstAddToCartButton));
         addToCartButton.click();
     }
 
-    public String getPriceOfFirstProductFromBasePage(){
-     String price = getCurrentDriver().findElement(firstPrice).getText();
-     return price.substring(0,price.length()-1);
+    public String getPriceOfFirstProductFromBasePage() {
+        String price = getCurrentDriver().findElement(firstPrice).getText();
+        return price.substring(0, price.length() - 1);
     }
 
-    public boolean ifCartAmountCorrect(String price){
+    public boolean ifCartAmountCorrect(String price) {
         return price.equals(getCurrentDriver().findElement(priceOfCartBesideCartButton).getText());
     }
 
-    public void backToBasePage(){
+    public void backToBasePage() {
         getCurrentDriver().findElement(backToBasePageCentreIcon).click();
     }
 }

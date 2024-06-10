@@ -41,7 +41,7 @@ public class RegistrationPage extends BasePage {
         getCurrentDriver().findElement(registerButton).click();
     }
 
-    public boolean isThisLoginIsAlreadyTakenMessageDisplayed() {
+    public boolean isMessageThisLoginIsAlreadyTakenDisplayed() {
         try {
             getCurrentDriver().findElement(loginTakenErrorMessage);
         } catch (Exception e) {
@@ -50,7 +50,7 @@ public class RegistrationPage extends BasePage {
         return true;
     }
 
-    public boolean isPleaseCheckIfTheFormIsFilledInCorrectlyDisplayed() {
+    public boolean isMessagePleaseCheckIfTheFormIsFilledInCorrectlyDisplayed() {
         try {
             getCurrentDriver().findElement(incorrectFormErrorMessage);
         } catch (Exception e) {
