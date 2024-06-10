@@ -16,8 +16,10 @@ public class RegistrationPage extends BasePage {
     public By inputPassword = By.xpath("//input[@name='clients_password']");
     private By checkboxAgreement = By.id("uagreem");
     private By registerButton = By.xpath(("//*[@id='reg-form']/div[2]/button"));
-    public By firstErrorMessage = By.xpath("//div[@class='reg-error'][1]");
-    public By secondErrorMessage = By.id("reg-error");
+    public By loginTakenErrorMessage = By.xpath("//div[@class='reg-error'][1]");
+    public By incorrectFormErrorMessage = By.id("reg-error");
+    public String loginTakenMessageText = "This login is already taken!";
+    public String incorrectFormMessageText = "Please check if the form is filled in correctly!";
 
     public void fillInRegistrationFormClickRegister(String name,
                                                     String address,
@@ -41,7 +43,7 @@ public class RegistrationPage extends BasePage {
 
     public boolean isThisLoginIsAlreadyTakenMessageDisplayed() {
         try {
-            getCurrentDriver().findElement(firstErrorMessage);
+            getCurrentDriver().findElement(loginTakenErrorMessage);
         } catch (Exception e) {
             return false;
         }
@@ -50,13 +52,14 @@ public class RegistrationPage extends BasePage {
 
     public boolean isPleaseCheckIfTheFormIsFilledInCorrectlyDisplayed() {
         try {
-            getCurrentDriver().findElement(secondErrorMessage);
+            getCurrentDriver().findElement(incorrectFormErrorMessage);
         } catch (Exception e) {
             return false;
         }
         return true;
     }
-    public boolean isTextMessageCorrect(String message, By locator){
+
+    public boolean isTextMessageCorrect(String message, By locator) {
         return message.equals(getCurrentDriver().findElement(locator).getText());
     }
 

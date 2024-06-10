@@ -36,6 +36,6 @@ public class MyCartPageTest extends BaseTest {
         myCartPage.placeAnOrderClick();
         Assert.assertTrue(myCartPage.ifPopUpMessageIsDisplayed());
         Assert.assertEquals(myCartPage.getTextOfPopUpMessage(),
-                "Please choose the most convenient method of delivery!");
+                myCartPage.missingDeliveryMethodMessageText);
     }
 }

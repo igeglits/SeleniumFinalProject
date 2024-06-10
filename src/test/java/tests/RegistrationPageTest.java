@@ -6,14 +6,11 @@ import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.RegistrationPage;
 
-import java.util.concurrent.TimeUnit;
-
-import static java.lang.Thread.sleep;
 @Ignore
 public class RegistrationPageTest extends BaseTest {
 
     @Test(priority = 1)
-    void checkRegistrationWithAlreadyRegisteredEmailAndUsername(){
+    void checkRegistrationWithAlreadyRegisteredEmailAndUsername() {
         BasePage basePage = new BasePage();
         RegistrationPage registrationPage = new RegistrationPage();
 
@@ -26,8 +23,8 @@ public class RegistrationPageTest extends BaseTest {
                 "qwerty");
 
         Assert.assertTrue(registrationPage.isThisLoginIsAlreadyTakenMessageDisplayed());
-        Assert.assertTrue(registrationPage.isTextMessageCorrect("This login is already taken!",
-                registrationPage.firstErrorMessage));
+        Assert.assertTrue(registrationPage.isTextMessageCorrect(registrationPage.loginTakenMessageText,
+                registrationPage.loginTakenErrorMessage));
     }
 
     @Test(priority = 2)
@@ -38,8 +35,8 @@ public class RegistrationPageTest extends BaseTest {
         basePage.openRegistrationPage();
         registrationPage.fillInRegistrationFormClickRegister("", "", "", "", "", "");
         Assert.assertTrue(registrationPage.isPleaseCheckIfTheFormIsFilledInCorrectlyDisplayed());
-        Assert.assertTrue(registrationPage.isTextMessageCorrect("Please check if the form is filled in correctly!",
-                registrationPage.secondErrorMessage));
+        Assert.assertTrue(registrationPage.isTextMessageCorrect(registrationPage.incorrectFormMessageText,
+                registrationPage.incorrectFormErrorMessage));
         Assert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputName));
         Assert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputAddress));
         Assert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputPhone));

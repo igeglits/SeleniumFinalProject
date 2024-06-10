@@ -13,7 +13,7 @@ public class MyCartPage extends BasePage {
     By priceInLineOfProduct = By.className("cart-price");
     By placeAnOrder = By.id("cart-submit");
     By popUpMessage = By.className("jqimessage");
-    String message = "Please choose the most convenient method of delivery!";
+    public String missingDeliveryMethodMessageText = "Please choose the most convenient method of delivery!";
 
     public boolean ifPriceOfProductCorrect(String price) {
         WebDriverWait wait = new WebDriverWait(getCurrentDriver(), Duration.ofSeconds(5));
