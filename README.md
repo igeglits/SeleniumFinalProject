@@ -1,1 +1,18 @@
 # SeleniumFinalProject
+
+testng.xml
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="All tests suite">
+    <test name="All tests">
+        <packages>
+            <package name="tests"/>
+        </packages>
+    </test>
+    <listeners>
+        <listener class-name="org.testng.reporters.TestHTMLReporter"/>
+    </listeners>
+    <parameter name="good_login" value="testName"/>
+    <parameter name="good_password" value="password"/>
+
+</suite>
+
