@@ -2,7 +2,10 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 import static utils.DriverProvider.getCurrentDriver;
@@ -22,6 +25,11 @@ public class BasePage {
     By editProfileLink = By.xpath("//*[@id='userLogedLeft']/a[1]");
     By registrationPageLink = By.id("doregistr");
     By ayurvedicTeaPageLink = By.xpath("//*[@id='leftMenu']/li[1]/a");
+    By firstPrice = By.xpath("//span[@class='list-price'][1]");
+    By firstAddToCartButton = By.className("list-buy");
+    By cartButton = By.xpath("//a[@rel='nofollow'][1]");
+    By priceOfCartBesideCartButton = By.id("topCartAmount");
+    By backToBasePageCentreIcon = By.id("topMenuMid");
 
     public void login(String loginName, String password) {
         WebElement registrationButton = getCurrentDriver().findElement(registrationAndLogin);
@@ -74,5 +82,28 @@ public class BasePage {
     public void openRegistrationPage() {
         getCurrentDriver().findElement(registrationAndLogin).click();
         getCurrentDriver().findElement(registrationPageLink).click();
+    }
+
+    public void openCart(){
+        getCurrentDriver().findElement(cartButton).click();
+    }
+
+    public void addFirstProductFromBasePageToCart(){
+        WebDriverWait wait = new WebDriverWait(getCurrentDriver(), Duration.ofSeconds(5));
+        WebElement addToCartButton = wait.until(ExpectedConditions.elementToBeClickable(firstAddToCartButton));
+        addToCartButton.click();
+    }
+
+    public String getPriceOfFirstProductFromBasePage(){
+     String price = getCurrentDriver().findElement(firstPrice).getText();
+     return price.substring(0,price.length()-1);
+    }
+
+    public boolean ifCartAmountCorrect(String price){
+        return price.equals(getCurrentDriver().findElement(priceOfCartBesideCartButton).getText());
+    }
+
+    public void backToBasePage(){
+        getCurrentDriver().findElement(backToBasePageCentreIcon).click();
     }
 }

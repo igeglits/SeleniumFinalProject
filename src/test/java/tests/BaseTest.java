@@ -20,7 +20,6 @@ public class BaseTest {
         wait = new WebDriverWait(getCurrentDriver(), Duration.ofSeconds(2));
         getCurrentDriver().manage().window().maximize();
         getCurrentDriver().get("https://www.herbals.lv/en/");
-
     }
 
     @AfterMethod

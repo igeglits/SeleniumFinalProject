@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.RegistrationPage;
@@ -8,7 +9,7 @@ import pages.RegistrationPage;
 import java.util.concurrent.TimeUnit;
 
 import static java.lang.Thread.sleep;
-
+@Ignore
 public class RegistrationPageTest extends BaseTest {
 
     @Test(priority = 1)

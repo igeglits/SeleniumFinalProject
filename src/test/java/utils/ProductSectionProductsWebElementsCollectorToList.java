@@ -13,18 +13,14 @@ public class ProductSectionProductsWebElementsCollectorToList {
 
 
     public List<String> collectAllProductsFromProductSectionReturnUrls(By productsListOnProductPage, By pagerOnProductPage) {
-        List<WebElement> elementsFromFirstPageOfProductSection = getCurrentDriver().findElements(productsListOnProductPage);
-        List<String> elementsUrl = getElementsUrl(elementsFromFirstPageOfProductSection);
-
+        List<String> elementsUrl = getElementsUrl(getCurrentDriver().findElements(productsListOnProductPage));
         var pagerUrls = processPagerElementsAndExtractUrlsToList(pagerOnProductPage);
 
         for (String url : pagerUrls) {
             getCurrentDriver().get(url);
-            List<WebElement> elementsFromNextPageOfProductSection = getCurrentDriver().findElements(productsListOnProductPage);
-            List<String> nextPageElementsUrl = getElementsUrl(elementsFromNextPageOfProductSection);
+            List<String> nextPageElementsUrl = getElementsUrl(getCurrentDriver().findElements(productsListOnProductPage));
             elementsUrl.addAll(nextPageElementsUrl);
         }
-
         return elementsUrl;
     }
 
