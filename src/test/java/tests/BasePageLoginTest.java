@@ -6,12 +6,12 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.BasePage;
-@Ignore
+
 public class BasePageLoginTest extends BaseTest{
 
     @Test
     @Parameters({"good_login", "good_password"})
-    void successfulCheck(String userName, String password) {
+    void successfulLoginCheck(String userName, String password) {
         BasePage basePage = new BasePage();
         User standartUser = new User(userName, password);
 
@@ -41,7 +41,7 @@ public class BasePageLoginTest extends BaseTest{
 
     @Test
     @Parameters({"good_login", "good_password"})
-    void wrongUserNameAndPassword(String userName, String password) {
+    void wrongUserNameAndPasswordCheck(String userName, String password) {
         BasePage basePage = new BasePage();
 
         basePage.login(userName+"1", password+"1");

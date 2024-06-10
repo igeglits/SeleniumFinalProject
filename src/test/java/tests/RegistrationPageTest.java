@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.RegistrationPage;
 
-@Ignore
+
 public class RegistrationPageTest extends BaseTest {
 
     @Test(priority = 1)
