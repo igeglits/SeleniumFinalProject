@@ -14,17 +14,21 @@ public class ProductSectionProductsWebElementsCollectorToList {
 
     public List<String> collectAllProductsFromProductSectionReturnUrls(By productsListOnProductPage, By pagerOnProductPage) {
         List<String> elementsUrl = getElementsUrl(getCurrentDriver().findElements(productsListOnProductPage));
-        var pagerUrls = processPagerElementsAndExtractUrlsToList(pagerOnProductPage);
-
-        for (String url : pagerUrls) {
-            getCurrentDriver().get(url);
-            List<String> nextPageElementsUrl = getElementsUrl(getCurrentDriver().findElements(productsListOnProductPage));
-            elementsUrl.addAll(nextPageElementsUrl);
+        List<String> pagerUrls;
+        try {
+            pagerUrls = processPagerElementsAndExtractUrlsToList(pagerOnProductPage);
+            for (String url : pagerUrls) {
+                getCurrentDriver().get(url);
+                List<String> nextPageElementsUrl = getElementsUrl(getCurrentDriver().findElements(productsListOnProductPage));
+                elementsUrl.addAll(nextPageElementsUrl);
+            }
+        } catch (Exception e) {
+            return elementsUrl;
         }
         return elementsUrl;
     }
 
-    private List<String> processPagerElementsAndExtractUrlsToList(By pagerOnProductPage) {
+    private List<String> processPagerElementsAndExtractUrlsToList(By pagerOnProductPage) throws Exception {
         List<WebElement> notUniquePagerElements = getCurrentDriver().findElements(pagerOnProductPage);
         List<WebElement> uniquePagerElementsWithUrl = filterWebElementsForUniqueURL(notUniquePagerElements);
 
