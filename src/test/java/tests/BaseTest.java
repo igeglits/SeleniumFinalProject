@@ -17,7 +17,7 @@ public class BaseTest {
     @BeforeMethod
     void setUp() {
 
-        wait = new WebDriverWait(getCurrentDriver(), Duration.ofSeconds(2));
+        //wait = new WebDriverWait(getCurrentDriver(), Duration.ofSeconds(2));
         getCurrentDriver().manage().window().maximize();
         getCurrentDriver().get("https://www.herbals.lv/en/");
     }
