@@ -13,14 +13,12 @@ import static utils.DriverProvider.getCurrentDriver;
 public class ExplicitWaitsReturnWebElm {
 
     public static WebElement visibilityOfElement(int durationSec, By locator) {
-        WebDriverWait wait = new WebDriverWait(getCurrentDriver(), Duration.ofSeconds(durationSec));
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return new WebDriverWait(getCurrentDriver(), Duration.ofSeconds(durationSec))
+                .until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     public static WebElement elementToBeClickable(int durationSec, By locator) {
-        WebDriverWait wait = new WebDriverWait(getCurrentDriver(), Duration.ofSeconds(durationSec));
-        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+        return new WebDriverWait(getCurrentDriver(), Duration.ofSeconds(durationSec))
+                .until(ExpectedConditions.elementToBeClickable(locator));
     }
-
-
 }

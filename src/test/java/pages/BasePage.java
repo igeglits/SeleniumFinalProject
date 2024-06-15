@@ -31,6 +31,9 @@ public class BasePage {
     By priceOfCartBesideCartButton = By.id("topCartAmount");
     By backToBasePageCentreIcon = By.id("topMenuMid");
 
+    public By sliderContainer = By.id("box_skitter_large");
+    public By currentSlider = By.cssSelector(".image.current");
+
     public void login(String loginName, String password) {
         WebElement registrationButton = getCurrentDriver().findElement(registrationAndLogin);
         WebElement userField = getCurrentDriver().findElement(userFieldName);

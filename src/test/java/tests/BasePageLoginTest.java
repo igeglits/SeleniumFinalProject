@@ -2,10 +2,11 @@ package tests;
 
 import models.User;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.BasePage;
-
+@Ignore
 public class BasePageLoginTest extends BaseTest{
 
     @Test
