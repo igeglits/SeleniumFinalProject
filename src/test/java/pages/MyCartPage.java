@@ -12,12 +12,12 @@ public class MyCartPage extends BasePage {
     public String missingDeliveryMethodMessageText = "Please choose the most convenient method of delivery!";
 
     public boolean ifPriceOfProductCorrect(String price) {
-        String priceString = visibilityOfElement(2, priceOfProductInCartList).getText();
+        String priceString = visibilityOfElement(5, priceOfProductInCartList).getText();
         return price.equals(priceString.substring(0,priceString.length()-1));
     }
 
     public boolean ifPopUpMessageIsDisplayed() {
-        return visibilityOfElement(2,popUpMessage).isDisplayed();
+        return visibilityOfElement(5,popUpMessage).isDisplayed();
     }
 
     public String getTextOfPopUpMessage() {
