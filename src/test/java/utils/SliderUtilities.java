@@ -20,12 +20,11 @@ public class SliderUtilities {
         List<String> slidesUrl = sliderContainer.findElements(By.className("label_text")).stream()
                 .map(element -> element.findElement(By.cssSelector(".label_text a")).getAttribute("href"))
                 .collect(Collectors.toList());
-        slidesUrl.forEach(System.out::println);
 
         for (int i = 0; i < slidesUrl.size(); i++) {
             WebElement currentSlide = getCurrentDriver().findElement(By.className("image"));
             String currentSlideUrl = currentSlide.findElement(By.xpath("//*[@id=\"box_skitter_large\"]/div/div/a")).getAttribute("href");
-            System.out.println("Current slide " + currentSlideUrl);
+
             try {
                 Assert.assertEquals(currentSlideUrl, slidesUrl.get(i));
                 sleep(7000);
@@ -34,7 +33,6 @@ public class SliderUtilities {
             } catch (Exception e) {
                 return false;
             }
-
         }
         return true;
     }
