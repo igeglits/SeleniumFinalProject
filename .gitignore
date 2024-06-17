@@ -9,7 +9,7 @@ out/
 # Compiled class file
 *.class
 
-*.xml
+
 
 # Gradle specific
 .gradle/
@@ -20,5 +20,5 @@ gradlew.bat
 
 *.log
 /test-output/
-*.xml
+
 
