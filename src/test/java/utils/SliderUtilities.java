@@ -27,9 +27,9 @@ public class SliderUtilities {
 
             try {
                 Assert.assertEquals(currentSlideUrl, slidesUrl.get(i));
-                sleep(7000);
-                /*new WebDriverWait(getCurrentDriver(), Duration.ofSeconds(15))
-                        .until(ExpectedConditions.not(ExpectedConditions.visibilityOf(currentSlide)));*/
+              Thread.sleep(7000);
+                //new WebDriverWait(getCurrentDriver(), Duration.ofSeconds(15))
+                       // .until(ExpectedConditions.invisibilityOf(currentSlide));
             } catch (Exception e) {
                 return false;
             }

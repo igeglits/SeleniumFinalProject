@@ -7,32 +7,23 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.BasePage;
 
+import static utils.ClickSpot.clickEmptySpotOnScreenTopCentre;
 import static utils.DriverProvider.getCurrentDriver;
 import static utils.SliderUtilities.ifSlidesChangeWithCorrectSlideUrl;
 
 public class BasePageSliderContainerTest extends BaseTest {
-    @Test
+    @Test(priority = 1)
     void testSliderInitialization() {
         BasePage basePage = new BasePage();
         Assert.assertTrue(getCurrentDriver().findElement(basePage.sliderContainer)
                 .isDisplayed());
     }
 
-    @Test
+    @Test(priority = 2)
     public void testAutoSlideTransition() {
         BasePage basePage = new BasePage();
         WebElement sliderContainer = getCurrentDriver().findElement(basePage.sliderContainer);
-
-        int windowCentreX=(getCurrentDriver().manage()
-                .window()
-                .getSize()
-                .getWidth())/2;
-        int windowCentreY = 0;
-        new Actions(getCurrentDriver())
-                .moveToElement(getCurrentDriver().findElement(By.tagName("body")),windowCentreX, windowCentreY)
-                .click()
-                .perform();
-
+        clickEmptySpotOnScreenTopCentre();
         Assert.assertTrue(ifSlidesChangeWithCorrectSlideUrl(sliderContainer));
     }
 }
