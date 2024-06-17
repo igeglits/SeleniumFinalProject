@@ -21,7 +21,7 @@ public class SliderUtilities {
 
         for (int i = 0; i < slidesUrl.size(); i++) {
             WebElement currentSlide = getCurrentDriver().findElement(By.className("image"));
-            String currentSlideUrl = currentSlide.findElement(By.xpath("//*[@id=\"box_skitter_large\"]/div/div/a")).getAttribute("href");
+            String currentSlideUrl = currentSlide.findElement(By.xpath("//*[@id='box_skitter_large']/div/div/a")).getAttribute("href");
 
             try {
                 Assert.assertEquals(currentSlideUrl, slidesUrl.get(i));

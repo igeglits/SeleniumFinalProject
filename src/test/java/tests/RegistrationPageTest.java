@@ -15,7 +15,7 @@ public class RegistrationPageTest extends BaseTest {
         RegistrationPage registrationPage = new RegistrationPage();
 
         basePage.openRegistrationPage();
-        registrationPage.fillInRegistrationFormClickRegister("Name",
+        registrationPage.fillInRegistrationFormAndClickRegister("Name",
                 "Address",
                 "123456",
                 "igeglits@mail.ru",
@@ -33,7 +33,7 @@ public class RegistrationPageTest extends BaseTest {
         RegistrationPage registrationPage = new RegistrationPage();
 
         basePage.openRegistrationPage();
-        registrationPage.fillInRegistrationFormClickRegister("", "", "", "", "", "");
+        registrationPage.fillInRegistrationFormAndClickRegister("", "", "", "", "", "");
         Assert.assertTrue(registrationPage.isMessagePleaseCheckIfTheFormIsFilledInCorrectlyDisplayed());
         Assert.assertTrue(registrationPage.isTextMessageCorrect(registrationPage.incorrectFormMessageText,
                 registrationPage.incorrectFormErrorMessage));

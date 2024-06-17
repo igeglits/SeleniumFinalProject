@@ -6,7 +6,7 @@ import pages.BasePage;
 
 import java.io.IOException;
 
-import static utils.AssertionUtils.assertEqualsForLinkRespondStatus200;
+import static utils.AssertionUtils.assertLinkRespondWithStatus200;
 @Ignore
 public class BasePageVisibleElementsWithUrlTest extends BaseTest {
 
@@ -14,6 +14,6 @@ public class BasePageVisibleElementsWithUrlTest extends BaseTest {
     void checkAllVisibleElementsWithUrlOnPageForStatus200() throws IOException {
         BasePage basePage = new BasePage();
 
-        assertEqualsForLinkRespondStatus200(basePage.getLinkFromWebElement(basePage.collectVisibleElementsWithUrlToList()));
+        assertLinkRespondWithStatus200(basePage.getLinkFromWebElement(basePage.collectVisibleElementsWithUrlToList()));
     }
 }

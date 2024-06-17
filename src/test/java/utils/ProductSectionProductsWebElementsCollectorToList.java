@@ -51,8 +51,8 @@ public class ProductSectionProductsWebElementsCollectorToList {
                 .filter(e -> e.getAttribute("href") != null && e.getAttribute("href").startsWith("https"))
                 .collect(Collectors.toMap(
                         e -> e.getAttribute("href"),  // Ключ: URL
-                        e -> e,                       // Значение: сам элемент
-                        (e1, e2) -> e1                // Разрешение коллизий: оставить первый элемент
+                        e -> e,                       // Значение: элемент
+                        (e1, e2) -> e1                // оставить первый элемент
                 ))
                 .values());
     }

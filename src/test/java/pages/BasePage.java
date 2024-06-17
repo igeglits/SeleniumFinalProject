@@ -89,7 +89,6 @@ public class BasePage {
     }
 
     public void openCart() {
-       // getCurrentDriver().findElement(cartButton).click();
         elementToBeClickable(5, cartButton).click();
     }
 

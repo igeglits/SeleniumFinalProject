@@ -16,7 +16,7 @@ public class AssertionUtils {
         Assert.assertEquals(actual, expected);
     }
 
-    public static void assertEqualsForLinkRespondStatus200(List<String> elements) throws IOException {
+    public static void assertLinkRespondWithStatus200(List<String> elements) throws IOException {
         for (String link : elements) {
             int actualStatusCode = getHttpStatusCode(link);
             Reporter.log("For " + link + " received code " + actualStatusCode);

@@ -10,7 +10,7 @@ import java.util.List;
 
 import static pages.AyurvedicTeasPage.pagerOnProductPage;
 import static pages.AyurvedicTeasPage.productsListOnProductPageClassName;
-import static utils.AssertionUtils.assertEqualsForLinkRespondStatus200;
+import static utils.AssertionUtils.assertLinkRespondWithStatus200;
 @Ignore
 public class AyurvedicTeasPageTest extends BaseTest {
 
@@ -24,6 +24,6 @@ public class AyurvedicTeasPageTest extends BaseTest {
                 productsListOnProductPageClassName,
                 pagerOnProductPage);
 
-        assertEqualsForLinkRespondStatus200(productsUrls);
+        assertLinkRespondWithStatus200(productsUrls);
     }
 }

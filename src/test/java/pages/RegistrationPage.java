@@ -21,12 +21,12 @@ public class RegistrationPage extends BasePage {
     public String loginTakenMessageText = "This login is already taken!";
     public String incorrectFormMessageText = "Please check if the form is filled in correctly!";
 
-    public void fillInRegistrationFormClickRegister(String name,
-                                                    String address,
-                                                    String phone,
-                                                    String email,
-                                                    String userName,
-                                                    String password) {
+    public void fillInRegistrationFormAndClickRegister(String name,
+                                                       String address,
+                                                       String phone,
+                                                       String email,
+                                                       String userName,
+                                                       String password) {
         getCurrentDriver().findElement(inputName).sendKeys(name);
         getCurrentDriver().findElement(inputAddress).sendKeys(address);
         getCurrentDriver().findElement(inputPhone).sendKeys(phone);
