@@ -9,6 +9,7 @@ import java.time.Duration;
 import java.util.List;
 
 import static utils.DriverProvider.getCurrentDriver;
+import static utils.ExplicitWaitsReturnWebElm.elementToBeClickable;
 
 
 public class BasePage {
@@ -88,7 +89,8 @@ public class BasePage {
     }
 
     public void openCart() {
-        getCurrentDriver().findElement(cartButton).click();
+       // getCurrentDriver().findElement(cartButton).click();
+        elementToBeClickable(5, cartButton).click();
     }
 
     public void addFirstProductFromBasePageToCart() {

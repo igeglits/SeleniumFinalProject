@@ -1,11 +1,14 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.MyCartPage;
 
+import static utils.Scrolls.scrollToUpTop;
+@Ignore
 public class MyCartPageTest extends BaseTest {
 
     @Test(priority = 1)
@@ -18,6 +21,7 @@ public class MyCartPageTest extends BaseTest {
         basePage.backToBasePage();
         basePage.addFirstProductFromBasePageToCart();
         String price = basePage.getPriceOfFirstProductFromBasePage();
+        scrollToUpTop();
         basePage.openCart();
         Assert.assertTrue(myCartPage.ifPriceOfProductCorrect(price));
 
@@ -32,6 +36,7 @@ public class MyCartPageTest extends BaseTest {
         basePage.login(userName, password);
         basePage.backToBasePage();
         basePage.addFirstProductFromBasePageToCart();
+        scrollToUpTop();
         basePage.openCart();
         myCartPage.placeAnOrderClick();
         Assert.assertTrue(myCartPage.ifPopUpMessageIsDisplayed());

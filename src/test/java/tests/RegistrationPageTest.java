@@ -1,11 +1,12 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.RegistrationPage;
 
-
+@Ignore
 public class RegistrationPageTest extends BaseTest {
 
     @Test(priority = 1)

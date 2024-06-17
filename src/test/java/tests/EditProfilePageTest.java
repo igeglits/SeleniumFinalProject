@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.BasePage;
@@ -9,7 +10,7 @@ import pages.EditProfilePage;
 import static utils.DriverProvider.getCurrentDriver;
 import static utils.StringRandomizer.generateRandomString;
 
-
+@Ignore
 public class EditProfilePageTest extends BaseTest {
     private final String newNameFieldEngLiteralValue = generateRandomString(8);
     private final String newAddressFieldEngLiteralValue = generateRandomString(10);

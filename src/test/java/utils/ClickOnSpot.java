@@ -5,7 +5,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import static utils.DriverProvider.getCurrentDriver;
 
-public class ClickSpot {
+public class ClickOnSpot {
 
     public static void clickEmptySpotOnScreenTopCentre(){
         int windowCentreX=(getCurrentDriver().manage()

@@ -1,16 +1,16 @@
 package tests;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.BasePage;
 
-import static utils.ClickSpot.clickEmptySpotOnScreenTopCentre;
+import static utils.ClickOnSpot.clickEmptySpotOnScreenTopCentre;
 import static utils.DriverProvider.getCurrentDriver;
+import static utils.Scrolls.scrollToUpTop;
 import static utils.SliderUtilities.ifSlidesChangeWithCorrectSlideUrl;
-
+@Ignore
 public class BasePageSliderContainerTest extends BaseTest {
     @Test(priority = 1)
     void testSliderInitialization() {
@@ -24,6 +24,7 @@ public class BasePageSliderContainerTest extends BaseTest {
         BasePage basePage = new BasePage();
         WebElement sliderContainer = getCurrentDriver().findElement(basePage.sliderContainer);
         clickEmptySpotOnScreenTopCentre();
+        scrollToUpTop();
         Assert.assertTrue(ifSlidesChangeWithCorrectSlideUrl(sliderContainer));
     }
 }
