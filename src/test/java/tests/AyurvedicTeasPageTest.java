@@ -20,7 +20,8 @@ public class AyurvedicTeasPageTest extends BaseTest {
 
         basePage.openAyurvedicTeaPage();
 
-        List<String> productsUrls = new ProductSectionProductsWebElementsCollectorToList().collectAllProductsFromProductSectionReturnUrls(
+        List<String> productsUrls = new ProductSectionProductsWebElementsCollectorToList()
+                .collectAllProductsFromProductSectionReturnUrls(
                 productsListOnProductPageClassName,
                 pagerOnProductPage);
 
