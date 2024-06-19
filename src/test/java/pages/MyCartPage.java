@@ -1,6 +1,8 @@
 package pages;
 
 import org.openqa.selenium.By;
+
+import static config.Config.EXPLICIT_WAIT_TIME_SEC;
 import static utils.DriverProvider.getCurrentDriver;
 import static utils.ExplicitWaitsReturnWebElm.elementToBeClickable;
 import static utils.ExplicitWaitsReturnWebElm.visibilityOfElement;
@@ -12,12 +14,12 @@ public class MyCartPage extends BasePage {
     public String missingDeliveryMethodMessageText = "Please choose the most convenient method of delivery!";
 
     public boolean ifPriceOfProductCorrect(String price) {
-        String priceString = visibilityOfElement(5, priceOfProductInCartList).getText();
+        String priceString = visibilityOfElement(EXPLICIT_WAIT_TIME_SEC, priceOfProductInCartList).getText();
         return price.equals(priceString.substring(0,priceString.length()-1));
     }
 
     public boolean ifPopUpMessageIsDisplayed() {
-        return visibilityOfElement(5,popUpMessage).isDisplayed();
+        return visibilityOfElement(EXPLICIT_WAIT_TIME_SEC,popUpMessage).isDisplayed();
     }
 
     public String getTextOfPopUpMessage() {
@@ -25,6 +27,6 @@ public class MyCartPage extends BasePage {
     }
 
     public void placeAnOrderClick() {
-        elementToBeClickable(5, placeAnOrderButton).click();
+        elementToBeClickable(EXPLICIT_WAIT_TIME_SEC, placeAnOrderButton).click();
     }
 }

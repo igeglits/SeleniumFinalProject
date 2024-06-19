@@ -10,6 +10,7 @@ import org.testng.Assert;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static config.Config.THREAD_SLEEP_TIME_MSEC;
 import static utils.DriverProvider.getCurrentDriver;
 
 public class SliderUtilities {
@@ -25,7 +26,7 @@ public class SliderUtilities {
 
             try {
                 Assert.assertEquals(currentSlideUrl, slidesUrl.get(i));
-              Thread.sleep(7000);
+              Thread.sleep(THREAD_SLEEP_TIME_MSEC);
                 //new WebDriverWait(getCurrentDriver(), Duration.ofSeconds(15))
                        // .until(ExpectedConditions.invisibilityOf(currentSlide));
             } catch (Exception e) {

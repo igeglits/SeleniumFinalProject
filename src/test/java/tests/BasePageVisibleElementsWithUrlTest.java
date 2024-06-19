@@ -14,6 +14,7 @@ public class BasePageVisibleElementsWithUrlTest extends BaseTest {
     void checkAllVisibleElementsWithUrlOnPageForStatus200() throws IOException {
         BasePage basePage = new BasePage();
 
-        assertLinkRespondWithStatus200(basePage.getLinkFromWebElement(basePage.collectVisibleElementsWithUrlToList()));
+        assertLinkRespondWithStatus200(basePage.getLinkFromWebElement(
+                basePage.collectVisibleElementsWithUrlToList()));
     }
 }

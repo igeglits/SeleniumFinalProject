@@ -24,7 +24,6 @@ public class DriverProvider {
         return driver;
     }
 
-
     public static void closeDriver() {
         if (driver != null) {
             driver.close();

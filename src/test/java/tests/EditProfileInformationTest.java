@@ -30,7 +30,8 @@ public class EditProfileInformationTest extends BaseTest {
     void checkNameFieldForNewValue(String userName, String password) {
         var editProfilePage = getEditProfilePage(userName, password);
 
-        Assert.assertTrue(editProfilePage.checkValueEqualityOf(newNameFieldEngLiteralValue, editProfilePage.inputFieldName));
+        Assert.assertTrue(editProfilePage.checkValueEqualityOf(
+                newNameFieldEngLiteralValue, editProfilePage.inputFieldName));
     }
 
     @Test(priority = 3)
@@ -48,7 +49,8 @@ public class EditProfileInformationTest extends BaseTest {
     void checkAddressFieldForNewValue(String userName, String password) {
         var editProfilePage = getEditProfilePage(userName, password);
 
-        Assert.assertTrue(editProfilePage.checkValueEqualityOf(newAddressFieldEngLiteralValue, editProfilePage.inputFieldAddress));
+        Assert.assertTrue(editProfilePage.checkValueEqualityOf(
+                newAddressFieldEngLiteralValue, editProfilePage.inputFieldAddress));
     }
 
     @Test(priority = 5)
