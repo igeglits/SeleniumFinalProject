@@ -12,7 +12,7 @@ import static pages.AyurvedicTeasPage.pagerOnProductPage;
 import static pages.AyurvedicTeasPage.productsListOnProductPageClassName;
 import static utils.AssertionUtils.assertLinkRespondWithStatus200;
 @Ignore
-public class AyurvedicTeasPageTest extends BaseTest {
+public class AyurvedicTeasProductTest extends BaseTest {
 
     @Test
     void checkAllProductsLinksInProductSectionInclPagingForStatus200() throws IOException {

@@ -7,7 +7,7 @@ import pages.BasePage;
 import java.io.IOException;
 
 import static utils.AssertionUtils.assertLinkRespondWithStatus200;
-@Ignore
+//@Ignore
 public class BasePageVisibleElementsWithUrlTest extends BaseTest {
 
     @Test

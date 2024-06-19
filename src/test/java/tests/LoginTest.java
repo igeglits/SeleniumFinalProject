@@ -7,7 +7,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.BasePage;
 @Ignore
-public class BasePageLoginTest extends BaseTest{
+public class LoginTest extends BaseTest{
 
     @Test
     @Parameters({"good_login", "good_password"})
