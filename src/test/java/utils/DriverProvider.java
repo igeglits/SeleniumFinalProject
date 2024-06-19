@@ -4,7 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.concurrent.TimeUnit;
+
 import static config.Config.BROWSER;
+import static config.Config.IMPLICIT_WAIT_TIME_SEC;
 
 public class DriverProvider {
     private static WebDriver driver = null;
@@ -18,7 +21,7 @@ public class DriverProvider {
             }
             assert driver != null;
             driver.manage().window().maximize();
-            // driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
+           // driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT_TIME_SEC, TimeUnit.SECONDS);
         }
         return driver;
     }
