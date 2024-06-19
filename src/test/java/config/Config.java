@@ -2,7 +2,7 @@ package config;
 
 public class Config {
 
-    public static final String BROWSER = Browsers.CHROME.getBrowserName();
+    public static final String BROWSER = Browser.CHROME.getBrowserName();
 
     public static final int IMPLICIT_WAIT_TIME_SEC = 10;
 

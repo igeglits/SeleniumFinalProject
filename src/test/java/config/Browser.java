@@ -1,13 +1,13 @@
 package config;
 
-public enum Browsers {
+public enum Browser {
     CHROME ("chrome"),
     FIREFOX("firefox");
 
 
     private final String browserName;
 
-    Browsers(String browserName) {
+    Browser(String browserName) {
         this.browserName = browserName;
     }
 
