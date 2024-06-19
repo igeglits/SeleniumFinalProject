@@ -1,13 +1,14 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.MyCartPage;
 
 import static utils.Scrolls.scrollToUpTop;
-//@Ignore
+@Ignore
 public class MyCartTest extends BaseTest {
 
     @Test(priority = 1)

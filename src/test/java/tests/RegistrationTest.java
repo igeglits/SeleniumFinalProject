@@ -1,7 +1,9 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.BasePage;
 import pages.RegistrationPage;
 
@@ -28,20 +30,23 @@ public class RegistrationTest extends BaseTest {
 
     @Test(priority = 2)
     void checkRegistrationWithAllFieldsEmpty() {
+        SoftAssert softAssert = new SoftAssert();
         BasePage basePage = new BasePage();
         RegistrationPage registrationPage = new RegistrationPage();
 
         basePage.openRegistrationPage();
         registrationPage.fillInRegistrationFormAndClickRegister("", "", "", "", "", "");
-        Assert.assertTrue(registrationPage.isMessagePleaseCheckIfTheFormIsFilledInCorrectlyDisplayed());
-        Assert.assertTrue(registrationPage.isTextMessageCorrect(registrationPage.incorrectFormMessageText,
+        softAssert.assertTrue(registrationPage.isMessagePleaseCheckIfTheFormIsFilledInCorrectlyDisplayed());
+        softAssert.assertTrue(registrationPage.isTextMessageCorrect(registrationPage.incorrectFormMessageText,
                 registrationPage.incorrectFormErrorMessage));
-        Assert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputName));
-        Assert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputAddress));
-        Assert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputPhone));
-        Assert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputEmail));
-        Assert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputUsername));
-        Assert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputPassword));
+        softAssert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputName));
+        softAssert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputAddress));
+        softAssert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputPhone));
+        softAssert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputEmail));
+        softAssert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputUsername));
+        softAssert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputPassword));
+
+        softAssert.assertAll();
     }
 
 }
