@@ -8,7 +8,7 @@ import org.testng.asserts.SoftAssert;
 import java.io.IOException;
 import java.util.List;
 
-import static Config.Config.HTTP_CODE;
+import static config.Config.HTTP_CODE;
 import static utils.CheckHttpStatus.getHttpStatusCode;
 
 public class AssertionUtils {

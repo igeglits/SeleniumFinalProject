@@ -1,11 +1,11 @@
 package utils;
 
+import config.Browsers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 
-import static Config.Config.BROWSER;
+import static config.Config.BROWSER;
 
 public class DriverProvider {
     private static WebDriver driver = null;
@@ -15,10 +15,11 @@ public class DriverProvider {
             switch (BROWSER) {
                 case "chrome" -> driver = new ChromeDriver();
                 case "firefox" -> driver = new FirefoxDriver();
-                default -> Assert.fail("Unsupported browser: " + BROWSER);
+                default -> System.out.println("No implementation for " + BROWSER);
             }
+            assert driver != null;
             driver.manage().window().maximize();
-           // driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
+            // driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
         }
         return driver;
     }

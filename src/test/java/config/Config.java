@@ -1,8 +1,8 @@
-package Config;
+package config;
 
 public class Config {
 
-    public static final String BROWSER = "chrome";
+    public static final String BROWSER = Browsers.CHROME.getBrowserName();
 
     public static final int IMPLICIT_WAIT = 10;
 
