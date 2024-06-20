@@ -11,7 +11,7 @@ import java.util.List;
 import static pages.AyurvedicTeasPage.pagerOnProductPage;
 import static pages.AyurvedicTeasPage.productsListOnProductPageClassName;
 import static utils.AssertionUtils.assertLinkRespondWithStatus200;
-//@Ignore
+@Ignore
 public class AyurvedicTeasProductTest extends BaseTest {
 
     @Test
