@@ -1,7 +1,7 @@
 package tests;
 
+import config.ColorRGB;
 import org.testng.Assert;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.BasePage;
@@ -39,12 +39,12 @@ public class RegistrationTest extends BaseTest {
         softAssert.assertTrue(registrationPage.isMessagePleaseCheckIfTheFormIsFilledInCorrectlyDisplayed());
         softAssert.assertTrue(registrationPage.isTextMessageCorrect(registrationPage.incorrectFormMessageText,
                 registrationPage.incorrectFormErrorMessage));
-        softAssert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputName));
-        softAssert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputAddress));
-        softAssert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputPhone));
-        softAssert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputEmail));
-        softAssert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputUsername));
-        softAssert.assertTrue(registrationPage.isFieldBoarderColorRed(registrationPage.inputPassword));
+        softAssert.assertTrue(registrationPage.isFieldBoarderExpectedColor(registrationPage.inputName, ColorRGB.RED.getColor()));
+        softAssert.assertTrue(registrationPage.isFieldBoarderExpectedColor(registrationPage.inputAddress, ColorRGB.RED.getColor()));
+        softAssert.assertTrue(registrationPage.isFieldBoarderExpectedColor(registrationPage.inputPhone, ColorRGB.RED.getColor()));
+        softAssert.assertTrue(registrationPage.isFieldBoarderExpectedColor(registrationPage.inputEmail, ColorRGB.RED.getColor()));
+        softAssert.assertTrue(registrationPage.isFieldBoarderExpectedColor(registrationPage.inputUsername, ColorRGB.RED.getColor()));
+        softAssert.assertTrue(registrationPage.isFieldBoarderExpectedColor(registrationPage.inputPassword, ColorRGB.RED.getColor()));
 
         softAssert.assertAll();
     }

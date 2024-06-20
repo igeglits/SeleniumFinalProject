@@ -63,15 +63,14 @@ public class RegistrationPage extends BasePage {
         return message.equals(getCurrentDriver().findElement(locator).getText());
     }
 
-    public boolean isFieldBoarderColorRed(By locator) {
+    public boolean isFieldBoarderExpectedColor(By locator, String expectedСolor) {
         JavascriptExecutor js = (JavascriptExecutor) getCurrentDriver();
         WebElement field = getCurrentDriver().findElement(locator);
         String borderColor = (String) js.executeScript(
                 "return window.getComputedStyle(arguments[0]).borderColor",
                 field
         );
-        String expectedColor = "rgb(237, 23, 7)";
-        return expectedColor.equals(borderColor);
+        return expectedСolor.equals(borderColor);
     }
 }
 
