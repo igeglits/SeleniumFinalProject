@@ -1,27 +1,30 @@
 package tests;
 
 import config.ColorRGB;
+import models.UserForRegistration;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.BasePage;
 import pages.RegistrationPage;
 
-//@Ignore
+@Ignore
 public class RegistrationTest extends BaseTest {
 
     @Test(priority = 1)
     void checkRegistrationWithAlreadyRegisteredEmailAndUsername() {
         BasePage basePage = new BasePage();
         RegistrationPage registrationPage = new RegistrationPage();
-
-        basePage.openRegistrationPage();
-        registrationPage.fillInRegistrationFormAndClickRegister("Name",
+        UserForRegistration userForRegistration = new UserForRegistration("Name",
                 "Address",
                 "123456",
                 "igeglits@mail.ru",
                 "testName",
                 "qwerty");
+
+        basePage.openRegistrationPage();
+        registrationPage.fillInRegistrationFormAndClickRegister(userForRegistration);
 
         Assert.assertTrue(registrationPage.isMessageThisLoginIsAlreadyTakenDisplayed());
         Assert.assertTrue(registrationPage.isTextMessageCorrect(registrationPage.loginTakenMessageText,
@@ -35,7 +38,8 @@ public class RegistrationTest extends BaseTest {
         RegistrationPage registrationPage = new RegistrationPage();
 
         basePage.openRegistrationPage();
-        registrationPage.fillInRegistrationFormAndClickRegister("", "", "", "", "", "");
+        UserForRegistration user = new UserForRegistration("","","","","","");
+        registrationPage.fillInRegistrationFormAndClickRegister(user);
         softAssert.assertTrue(registrationPage.isMessagePleaseCheckIfTheFormIsFilledInCorrectlyDisplayed());
         softAssert.assertTrue(registrationPage.isTextMessageCorrect(registrationPage.incorrectFormMessageText,
                 registrationPage.incorrectFormErrorMessage));

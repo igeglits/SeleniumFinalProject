@@ -1,5 +1,6 @@
 package pages;
 
+import models.UserForRegistration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -21,18 +22,13 @@ public class RegistrationPage extends BasePage {
     public String loginTakenMessageText = "This login is already taken!";
     public String incorrectFormMessageText = "Please check if the form is filled in correctly!";
 
-    public void fillInRegistrationFormAndClickRegister(String name,
-                                                       String address,
-                                                       String phone,
-                                                       String email,
-                                                       String userName,
-                                                       String password) {
-        getCurrentDriver().findElement(inputName).sendKeys(name);
-        getCurrentDriver().findElement(inputAddress).sendKeys(address);
-        getCurrentDriver().findElement(inputPhone).sendKeys(phone);
-        getCurrentDriver().findElement(inputEmail).sendKeys(email);
-        getCurrentDriver().findElement(inputUsername).sendKeys(userName);
-        getCurrentDriver().findElement(inputPassword).sendKeys(password);
+    public void fillInRegistrationFormAndClickRegister(UserForRegistration user) {
+        getCurrentDriver().findElement(inputName).sendKeys(user.name());
+        getCurrentDriver().findElement(inputAddress).sendKeys(user.address());
+        getCurrentDriver().findElement(inputPhone).sendKeys(user.phone());
+        getCurrentDriver().findElement(inputEmail).sendKeys(user.email());
+        getCurrentDriver().findElement(inputUsername).sendKeys(user.userName());
+        getCurrentDriver().findElement(inputPassword).sendKeys(user.password());
         var checkbox = getCurrentDriver().findElement(checkboxAgreement);
         if (!checkbox.isSelected()) {
             JavascriptExecutor jsExecutor = (JavascriptExecutor) getCurrentDriver();
