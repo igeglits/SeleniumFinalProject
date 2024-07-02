@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -31,6 +32,7 @@ public class BasePage {
     By cartButton = By.xpath("//a[@rel='nofollow'][1]");
     By priceOfCartBesideCartButton = By.id("topCartAmount");
     By backToBasePageCentreIcon = By.id("topMenuMid");
+    By forWomanPageLink = By.cssSelector("a[href*=\"for-women\"]");
 
     public By sliderContainer = By.id("box_skitter_large");
     public By currentSlider = By.cssSelector(".image.current");
@@ -77,6 +79,10 @@ public class BasePage {
 
     public void openAyurvedicTeaPage() {
         getCurrentDriver().findElement(ayurvedicTeaPageLink).click();
+    }
+    public void openForWomanPage(){
+
+        elementToBeClickable(5,forWomanPageLink).click();
     }
 
     public void openEditProfilePage() {

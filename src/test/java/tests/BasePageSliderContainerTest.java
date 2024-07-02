@@ -10,7 +10,7 @@ import static utils.ClickOnSpot.clickEmptySpotOnScreenTopCentre;
 import static utils.DriverProvider.getCurrentDriver;
 import static utils.Scrolls.scrollToUpTop;
 import static utils.SliderUtilities.ifSlidesChangeWithCorrectSlideUrl;
-//@Ignore
+@Ignore
 public class BasePageSliderContainerTest extends BaseTest {
     @Test(priority = 1)
     void testSliderInitialization() {

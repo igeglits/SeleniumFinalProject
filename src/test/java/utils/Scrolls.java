@@ -10,4 +10,8 @@ public class Scrolls {
         JavascriptExecutor js = (JavascriptExecutor) getCurrentDriver();
         js.executeScript("window.scrollTo(0, 0);");
     }
+    public static void scrollToDown(){
+        JavascriptExecutor js = (JavascriptExecutor) getCurrentDriver();
+        js.executeScript("window.scrollTo(0, 0);");
+    }
 }

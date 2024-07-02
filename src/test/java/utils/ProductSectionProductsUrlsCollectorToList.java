@@ -23,7 +23,7 @@ public class ProductSectionProductsUrlsCollectorToList {
                 .findElements(productsListOnProductPage));
     }
 
-    private static List<String> getElementsUrl(List<WebElement> elements) {
+    private List<String> getElementsUrl(List<WebElement> elements) {
         List<String> elementsUrl;
         elementsUrl = elements.stream()
                 .filter(element -> element.findElement(By.xpath(".//a[1]")) != null)
@@ -32,14 +32,11 @@ public class ProductSectionProductsUrlsCollectorToList {
         return elementsUrl;
     }
 
-    private boolean ifProductListHasPaginatorCollectProductsUrlFromPagesAndAddToUrlslist(By productsListOnProductPage, By pagerOnProductPage, List<String> elementsUrl) {
+    private void ifProductListHasPaginatorCollectProductsUrlFromPagesAndAddToUrlslist(By productsListOnProductPage, By pagerOnProductPage, List<String> elementsUrl) {
         try {
             List<String> pagerUrls = processPagerElementsAndExtractPagesUrlsToList(pagerOnProductPage);
             getProductsUrlsFromPaginatorPages(elementsUrl, pagerUrls, productsListOnProductPage);
-        } catch (Exception e) {
-            return false;
-        }
-        return true;
+        } catch (Exception ignored) {}
     }
 
     private List<String> processPagerElementsAndExtractPagesUrlsToList(By pagerOnProductPage) throws Exception {
