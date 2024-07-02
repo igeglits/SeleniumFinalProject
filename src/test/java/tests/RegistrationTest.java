@@ -9,7 +9,7 @@ import org.testng.asserts.SoftAssert;
 import pages.BasePage;
 import pages.RegistrationPage;
 
-@Ignore
+//@Ignore
 public class RegistrationTest extends BaseTest {
 
     @Test(priority = 1)
